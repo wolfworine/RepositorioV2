@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/templates/BasicTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+ 	<!-- Dashboard Header -->
+                    <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
+                    <div class="content-header-media">
+                        <div class="header-section">
+                        
+                         	<h1>
+                                <i class="gi gi-group"></i> Welcome <strong> #{loginManagedBean.nombrecompleto}</strong><br/><small>You Look Awesome!</small>
+                            </h1>
+    
+                        </div>
+                       
+                    </div>
+                    <!-- END Dashboard Header -->
+
+                    <!-- Mini Top Stats Row -->
+                    <div class="row">
+                       <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/aplicacion/mantenimiento.xhtml" class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background animation-fadeIn">
+                                        <i class="fa fa-tablet"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                         <strong>Módulo  <br/>
+                                         <small>Aplicacion</small></strong>
+                                       
+                                    </h3>
+                                </div>
+                            </a>
+                            
+                            <!-- END Widget -->
+                        </div>
+                    
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/area/mantenimiento.xhtml" class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-autumn animation-fadeIn">
+                                        <i class="fa fa-building-o"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                         <strong>Módulo  <br/>
+                                         <small>Área</small></strong>
+                                       
+                                    </h3>
+                                </div>
+                            </a>
+                            
+                            <!-- END Widget -->
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/cargo/mantenimiento.xhtml" class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-spring animation-fadeIn">
+                                        <i class="gi gi-cargo"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Cargo</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/rol/mantenimiento.xhtml" class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-fire animation-fadeIn">
+                                        <i class="gi gi-table"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Rol</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/suministro/mantenimiento.xhtml" class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-amethyst animation-fadeIn">
+                                        <i class="gi gi-notes"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Suministro</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                        
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/ubicacion/mantenimiento.xhtml"  class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background animation-fadeIn">
+                                        <i class="gi gi-picture"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Ubicación</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                        
+                         <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/detalle/mantenimiento.xhtml"  class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-night  animation-fadeIn">
+                                        <i class="gi gi-binoculars"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Detalle</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                        
+                       <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/usuario/mantenimiento.xhtml"  class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-night  animation-fadeIn">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Usuario</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                        
+                       <div class="col-sm-6 col-lg-3">
+                            <!-- Widget -->
+                            <a href="#{request.contextPath}/paginas/reportes/reporte.xhtml"  class="widget widget-hover-effect1">
+                                <div class="widget-simple">
+                                    <div class="widget-icon pull-left themed-background-night  animation-fadeIn">
+                                        <i class="gi gi-notes_2"></i>
+                                    </div>
+                                    <h3 class="widget-content text-right animation-pullDown">
+                                        	<strong>Módulo  <br/>
+                                         <small>Reportes</small></strong>
+                                    </h3>
+                                </div>
+                            </a>
+                            <!-- END Widget -->
+                        </div>
+                    </div>
+                    <!-- END Mini Top Stats Row -->
+ 
+                 
+      
+</ui:define>
+</ui:composition>
+</html>

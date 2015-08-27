@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta charset="utf-8"/>
+
+        <title>WiseVision - Responsive Bootstrap Admin</title>
+
+        <meta name="description" content="WiseVision"/>
+        <meta name="author" content="pixelcave"/>
+        <meta name="robots" content="noindex, nofollow"/>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0"/>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+        <link rel="shortcut icon" href="#{request.contextPath}/resources/img/favicon.ico" />
+
+    </f:facet>
+
+	<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Related styles of various icon packs and plugins -->
+	
+
+	
+	
+	<link href="#{request.contextPath}/resources/css/plugins.css" rel="stylesheet" />
+	<!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+	
+	<link href="#{request.contextPath}/resources/css/main.css" rel="stylesheet" />
+	<!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+	
+	<!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+	<link href="#{request.contextPath}/resources/css/themes.css" rel="stylesheet" />
+	
+
+
+	<!-- END Stylesheets -->
+	
+	
+	<!-- Modernizr (browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+   	<h:outputScript library="js" name="vendor/modernizr-2.7.1-respond-1.4.2.min.js"/>
+
+    <ui:insert name="head" />
+   
+</h:head>
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  -->
+<!--           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" -->
+<!--       xmlns:ui="http://java.sun.com/jsf/facelets"> -->
+<!-- <head> -->
+<!--   <title><ui:insert name="title">Mi Facelet Application</ui:insert></title> -->
+<!-- </head> -->
+
+
+<body >
+        <!-- Login Full Background -->
+        <!-- For best results use an image with a resolution of 1280x1280 pixels (prefer a blurred image for smaller file size) -->
+        <img src="resources/img/placeholders/backgrounds/login_full_bg.jpg" alt="Login Full Background" class="full-bg animation-pulseSlow"/>
+        <!-- END Login Full Background -->
+
+       <!-- Login Container -->
+        <div id="login-container" class="animation-fadeIn">
+            <!-- Login Title -->
+            <div class="login-title text-center">
+                <h1><strong>Entel</strong><br/><small>Please <strong>Login</strong> or <strong>Register</strong></small></h1>
+            </div>
+            <!-- END Login Title -->
+<p:growl id="mensaje" life="3000" ></p:growl>
+            <!-- Login Block -->
+            <div class="block push-bit">
+                <!-- Login Form -->
+                <h:form id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                
+                                <p:inputText value="#{loginManagedBean.login.email}" id="login-email" name="login-email" required="true" styleClass="form-control input-lg" placeholder="Email" ></p:inputText>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>                             
+                           		<p:password value="#{loginManagedBean.login.password}" id="login-password" name="login-password" class="form-control input-lg" placeholder="Password"></p:password>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-actions">
+                        <div class="col-xs-4">
+                            <label class="switch switch-primary" data-toggle="tooltip" title="Remember Me?">
+<!--                             	<h:selectBooleanCheckbox value="Remember Me" id="chkRememberMe" /> -->
+                                <input type="checkbox" id="login-remember-me" name="login-remember-me" />
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                        <p:commandButton action="#{loginManagedBean.validar}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-arrow-right" value="Login to Dashboard"></p:commandButton>
+                       
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 text-center">
+                            
+                            <a href="javascript:void(0)" id="link-register-login"><small>Create a new account</small></a>
+                        </div>
+                    </div>
+                  </h:form>
+                <!-- END Login Form -->
+
+                <!-- Register Form -->
+                <h:form id="form-register" styleClass="form-horizontal form-bordered form-control-borderless display-none" >
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                
+                                
+                    
+                              <p:inputText value="#{usuarioManagedBean.usuario.a_firstname}" id="register-firstname" name="register-firstname" required="true" styleClass="form-control input-lg" placeholder="Firstname" ></p:inputText>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                        	 <p:inputText value="#{usuarioManagedBean.usuario.b_lastname}" id="register-lastname" name="register-lastname" required="true" styleClass="form-control input-lg" placeholder="Lastname" ></p:inputText>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                 <p:inputText value="#{usuarioManagedBean.usuario.c_email}" id="register-email" name="register-email" required="true" styleClass="form-control input-lg" placeholder="Email" ></p:inputText>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                <p:password value="#{usuarioManagedBean.usuario.d_password}" id="register-password" name="register-password" class="form-control input-lg" placeholder="Password"></p:password>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="form-group form-actions">
+
+                        <div class="col-xs-6 text-right">
+      
+     						<p:commandButton action="#{usuarioManagedBean.registrar}" ajax="false" styleClass="btn btn-sm btn-success" icon="fa fa-plus" value="Register Account"></p:commandButton>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 text-center">
+                            <small>Do you have an account?</small> <a href="javascript:void(0)" id="link-register"><small>Login</small></a>
+                        </div>
+                    </div>
+              </h:form>
+                <!-- END Register Form -->
+            </div>
+            <!-- END Login Block -->
+        </div>
+        <!-- END Login Container -->
+
+
+
+
+   <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+
+        <h:outputScript library="js" name="vendor/bootstrap.min.js"/>
+        <h:outputScript library="js" name="plugins.js"/>
+        <h:outputScript library="js" name="app.js"/>
+      
+        <!-- Load and execute javascript code used only in this page -->
+         <h:outputScript library="js" name="pages/login.js"/>
+        <script>$(function(){ Login.init(); });</script>
+
+
+</body>
+
+</html>

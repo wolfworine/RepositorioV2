@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+
+  
+ 	<!-- Dashboard Header -->
+                    <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-table"></i>Mantenimiento Rol<br/>
+                            </h1>
+                        </div>
+                    </div>
+                   <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento.xhtml">Rol</a></li>
+                        <li>Mantenimiento</li>
+                    </ul>
+                    <!-- END Datatables Header -->
+
+                    <!-- Datatables Content -->
+                    <div class="block full">
+                        <div class="block-title">
+                            <h2><strong>Roles</strong> </h2>
+                        </div>
+                    <!-- END Dashboard Header -->
+
+                    <!-- Mini Top Stats Row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Form Validation Example Block -->
+                            <div class="block">
+                                <!-- Form Validation Example Title -->
+                                <div class="block-title">
+                                    <h2><strong>Formulario</strong> Nuevos Roles</h2>
+                                </div>
+                                <!-- END Form Validation Example Title -->
+
+                                <!-- Form Validation Example Content -->
+                                <h:form  styleClass="form-horizontal form-bordered">
+                               
+                                    <fieldset >
+                                        <legend><i class="fa fa-angle-right"></i>Insercion</legend>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="val_username">Codigo <span class="text-danger">*</span></label>
+                                            <div class="col-md-6">
+                            					<div class="input-group">
+                                        		
+												<p:inputText value="#{rolManagedBean.rol.id}" id="codigo" name="rol-codigo" required="true" placeholder="Ingresa codigo..." >
+												</p:inputText>
+												
+												</div>
+                                            </div>
+                                        </div>
+                                        
+                                   	<div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Nombre <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+												<p:inputText size="80" value="#{rolManagedBean.rol.a_nombre}" id="nombre" name="rol-nombre" required="true" placeholder="Ingresa Nombre..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Descripcion <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+												<p:inputText size="80" value="#{rolManagedBean.rol.b_descripcion}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div>
+                                        
+                                     <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Tipo <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+
+							            <h:selectOneMenu id="Tipo" value="#{rolManagedBean.rol.c_tipo}" required="true" label="Tipo">
+							                <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+							                <f:selectItem itemLabel="DINAMICO" itemValue="DINAMICO" />
+							                <f:selectItem itemLabel="ESTATICO" itemValue="ESTATICO" />
+							            </h:selectOneMenu>
+
+												
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Regla de negocio <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+												<p:inputText size="60" value="#{rolManagedBean.rol.d_regla_negocio}" id="regla_negocio" name="rol-regla_negocio" required="true" placeholder="Ingresa regla_negocio..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div> 
+                                        
+                                        
+                                        
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Ambito  <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+							            <h:selectOneMenu id="ambito" value="#{rolManagedBean.rol.e_ambito}" required="true" label="ambito">
+							                <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+							                <f:selectItem itemLabel="SUBUNIDAD" itemValue="SUBUNIDAD" />
+							                <f:selectItem itemLabel="LOCAL" itemValue="LOCAL" />
+							            </h:selectOneMenu>
+												
+										</div>
+                                        </div>
+                                    </div> 
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Propietario rol  </label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+												<p:inputText size="60"  value="#{rolManagedBean.rol.f_propietario_rol}" id="propietario_rol" name="rol-propietario_rol"  placeholder="Ingresa propietario_rol..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div> 
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Propietario Persona </label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                    
+												<p:inputText  size="60" value="#{rolManagedBean.rol.g_propietario_persona}" id="propietario_persona" name="rol-propietario_persona" placeholder="Ingresa propietario_persona..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Situacion </label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                    
+												<p:inputText  size="60" value="#{rolManagedBean.rol.h_situacion}" id="situacion" name="rol-situacion" placeholder="Ingresa situacion..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                   <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Rol Base</label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                    
+                                     <h:selectOneMenu id="rol_base" value="#{rolManagedBean.rol.i_rol_base}" required="true" label="rol_base">
+							                <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+							                <f:selectItem itemLabel="SI" itemValue="SI" />
+							                <f:selectItem itemLabel="NO" itemValue="NO" />
+							            </h:selectOneMenu>
+                                    
+									
+					
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                   <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Ubicacion  <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+							            <h:selectOneMenu id="ubicacion" value="#{rolManagedBean.rol.a_ubicacion.codigo}" required="true" label="ubicacion">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="u"
+									 	value="#{ubicacionManagedBean.ubicaciones}" 
+									 	itemLabel="#{u.ubicacion}"  itemValue="#{u.codigo}" ></f:selectItems>
+							            </h:selectOneMenu>
+												
+										</div>
+                                        </div>
+                                    </div>  
+                                    
+                                     <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Area  <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+							            <h:selectOneMenu id="area" value="#{rolManagedBean.rol.b_area.codigo}" required="true" label="area">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="a"
+									 	value="#{areaManagedBean.areas}" 
+									 	itemLabel="#{a.nombre}"  itemValue="#{a.codigo}" ></f:selectItems>
+							            </h:selectOneMenu>
+							         
+												
+										</div>
+                                        </div>
+                                    </div> 
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Cargo  <span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+										 <h:selectOneMenu id="cargo" value="#{rolManagedBean.rol.c_cargo.codigo}" required="true" label="cargo" >
+										  <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="c"
+									 	value="#{cargoManagedBean.cargos}" 
+									 	itemLabel="#{c.nombre}"  itemValue="#{c.codigo}"  ></f:selectItems>
+							            </h:selectOneMenu>
+							     
+												
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                    </fieldset>  
+                                    
+                                    
+				 				 <div class="form-group form-actions">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{rolManagedBean.registrar}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Registrar"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{rolManagedBean.volver}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Volver"></p:commandButton>
+                                      	 </div>
+                                        </div>
+                                  </div>
+                                </h:form>
+                                <!-- END Form Validation Example Content -->
+
+    
+                            </div>
+                            <!-- END Validation Block -->
+                        </div>
+
+                    </div>
+             </div>
+      
+</ui:define>
+</ui:composition>
+</html>

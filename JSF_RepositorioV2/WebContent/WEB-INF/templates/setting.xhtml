@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<body>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                    <h:form enctype="multipart/form-data"  styleClass="form-horizontal form-bordered" onsubmit="return false;">
+                            <fieldset>
+                                <legend>Vital Info</legend>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Email</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static">#{loginManagedBean.usuario1.c_email}</p>
+                                    </div>
+                                </div>
+
+
+                            </fieldset>
+                            <fieldset>
+                                <legend>Password Update</legend>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="user-settings-password">New Password</label>
+                                    <div class="col-md-8">
+                                     <p:password value="#{loginManagedBean.pass}" id="user-settings-password" name="user-settings-password" styleClass="form-control" placeholder="Please choose a complex one.."></p:password>
+                                    
+                       
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="user-settings-repassword">Confirm New Password</label>
+                                    <div class="col-md-8">
+                                         <p:password value="#{loginManagedBean.repass}" id="user-settings-repassword" name="user-settings-repassword" styleClass="form-control" placeholder="..and confirm it!"></p:password>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group form-actions">
+                                <div class="col-xs-12 text-right">
+                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                                    <p:commandButton action="#{loginManagedBean.cambiarpass}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-plus" value="Save Changes"></p:commandButton>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                    <!-- END Modal Body -->
+</body>
+</html>

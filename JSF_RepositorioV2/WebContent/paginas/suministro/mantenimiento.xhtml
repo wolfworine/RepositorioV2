@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/DataTableTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+ 	<!-- Datatables Header -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-table"></i>Mantenimiento<br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/suministro/mantenimiento.xhtml">Suministro</a></li>
+                        <li>Mantenimiento</li>
+                    </ul>
+            
+                    <!-- END Datatables Header -->
+
+                    <!-- Datatables Content -->
+                    <div class="block full">
+                        <div class="block-title">
+                            <h2><strong>Suministros</strong> </h2>
+                        </div>
+             
+   					<h:form>
+             		  <div class="table-responsive">
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{suministroManagedBean.suministros}" var="s" rows="20"
+						paginator="true"  selection="#{suministroManagedBean.selecSuministro}" 
+						selectionMode="single" rowKey="#{s.id}"  >
+					
+						<p:column  filterBy="#{s.id}" headerText="Id" styleClass="text-center">
+							
+							#{s.id}
+						</p:column>
+					
+						<p:column filterBy="#{s.a_rol.id}" headerText="id_rol" styleClass="text-center">
+						<span class="label label-primary">#{s.a_rol.id}</span>
+						</p:column>
+						
+						<p:column filterBy="#{s.b_nombre}" headerText="Nombre" width="700">
+						<span class="label label-primary">#{s.b_nombre}</span>
+						</p:column>
+						
+						<p:column filterBy="#{s.c_prioridad}" headerText="Prioridad" styleClass="text-center">
+						<span class="label label-primary">#{s.c_prioridad}</span>
+						</p:column>
+						
+					</p:dataTable>
+					</div>
+		
+                       
+                       
+                       
+                        
+				 				 <div class="form-group form-actions">
+                                        <div class="col-md-12 col-md-offset-2 center">
+                                        
+                                          <div class="col-xs-2">
+                                         <p:commandButton action="#{suministroManagedBean.nuevo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-2">
+                                         <p:commandButton action="#{suministroManagedBean.editar}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                      	 </div>
+                                      	 
+                                      	  <div class="col-xs-2">
+                                         <p:commandButton action="#{suministroManagedBean.ver_atributo}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="VerAtributo"></p:commandButton>
+                                      	 </div>
+                                        </div>
+                                </div>
+				  
+
+         
+
+					</h:form>
+                    </div>
+                    <!-- END Datatables Content -->
+ 
+        <!-- Load and execute javascript code used only in this page -->
+
+
+
+      
+</ui:define>
+</ui:composition>
+</html>

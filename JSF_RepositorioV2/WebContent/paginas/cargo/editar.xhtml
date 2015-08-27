@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+ 	<!-- Dashboard Header -->
+                    <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-table"></i>Mantenimiento Cargo<br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/cargo/mantenimiento.xhtml">Cargo</a></li>
+                        <li>Mantenimiento</li>
+                    </ul>
+                    <!-- END Datatables Header -->
+
+                    <!-- Datatables Content -->
+                    <div class="block full">
+                        <div class="block-title">
+                            <h2><strong>Cargos</strong> </h2>
+                        </div>
+                    <!-- END Dashboard Header -->
+
+
+                    <!-- Mini Top Stats Row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Form Validation Example Block -->
+                            <div class="block">
+                                <!-- Form Validation Example Title -->
+                                <div class="block-title">
+                                    <h2><strong>Formulario</strong> Insertar  Cargos</h2>
+                                </div>
+                                <!-- END Form Validation Example Title -->
+
+                                <!-- Form Validation Example Content -->
+                                <h:form id="form-validation"  styleClass="form-horizontal form-bordered">
+                               	
+                                    <fieldset>
+                                        <legend><i class="fa fa-angle-right"></i>Insertar</legend>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="val_username">Codigo <span class="text-danger">*</span></label>
+                                            <div class="col-md-6">
+                            					<div class="input-group">
+												<p:inputText value="#{cargoManagedBean.cargo.id}" id="codigo" name="cargo-codigo" required="true" placeholder="Ingresa codigo..." >
+												</p:inputText>
+												
+										</div>
+                                            </div>
+                                        </div>
+                                   	<div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Cargo<span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+												<p:inputText size="60"  value="#{cargoManagedBean.cargo.nombre}" id="nombre" name="cargo-nombre" required="true" placeholder="Ingresa Cargo..." >
+												</p:inputText>
+												
+										</div>
+                                        </div>
+                                    </div>
+                                        
+                                        
+                                        
+                                    </fieldset>  
+                                    
+                                    
+				 				 <div class="form-group form-actions">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{cargoManagedBean.registrar}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Registrar"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{cargoManagedBean.volver}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Volver"></p:commandButton>
+                                      	 </div>
+                                        </div>
+                                  </div>
+                                </h:form>
+                                <!-- END Form Validation Example Content -->
+
+    
+                            </div>
+                            <!-- END Validation Block -->
+                        </div>
+
+                    </div>
+             </div>
+      
+</ui:define>
+</ui:composition>
+</html>

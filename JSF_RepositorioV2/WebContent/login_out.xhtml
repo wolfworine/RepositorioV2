@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta charset="utf-8"/>
+
+        <title>WiseVision - Responsive Bootstrap Admin</title>
+
+        <meta name="description" content="WiseVision"/>
+        <meta name="author" content="pixelcave"/>
+        <meta name="robots" content="noindex, nofollow"/>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0"/>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+        <link rel="shortcut icon" href="#{request.contextPath}/resources/img/favicon.ico" />
+
+    </f:facet>
+
+	<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Related styles of various icon packs and plugins -->
+	
+
+	
+	
+	<link href="#{request.contextPath}/resources/css/plugins.css" rel="stylesheet" />
+	<!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+	
+	<link href="#{request.contextPath}/resources/css/main.css" rel="stylesheet" />
+	<!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+	
+	<!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+	<link href="#{request.contextPath}/resources/css/themes.css" rel="stylesheet" />
+	
+
+
+	<!-- END Stylesheets -->
+	
+	
+	<!-- Modernizr (browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+   	<h:outputScript library="js" name="vendor/modernizr-2.7.1-respond-1.4.2.min.js"/>
+
+    <ui:insert name="head" />
+   
+</h:head>
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  -->
+<!--           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" -->
+<!--       xmlns:ui="http://java.sun.com/jsf/facelets"> -->
+<!-- <head> -->
+<!--   <title><ui:insert name="title">Mi Facelet Application</ui:insert></title> -->
+<!-- </head> -->
+
+<body >
+      <!-- Login Background -->
+        <div id="login-background">
+            <!-- For best results use an image with a resolution of 2560x400 pixels (prefer a blurred image for smaller file size) -->
+            <img src="#{request.contextPath}/resources/img/placeholders/headers/lock_header.jpg" alt="Lock Background" class="animation-pulseSlow"/>
+        </div>
+        <!-- END Login Background -->
+
+        <!-- Login Container -->
+        <div id="login-container" class="animation-slideDown">
+            <!-- Login Title -->
+            <div class="login-title text-right">
+                <h1>
+                    <img src="#{request.contextPath}/resources/img/logo4.gif" alt="avatar" class="img-rectangle pull-left"/>
+                    <strong>#{loginManagedBean.nombrecompleto}</strong><br/>
+
+                </h1>
+            </div>
+            <!-- END Login Title -->
+
+            <!-- Login Block -->
+            <div class="block">
+            <h:form styleClass="form-horizontal push">
+             
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                            <p:password value="#{loginManagedBean.password}" id="login-password" name="login-password" class="form-control" placeholder="Password"></p:password>
+
+                                <div class="input-group-btn">
+                                    <p:commandButton action="#{loginManagedBean.unlock}" ajax="false" styleClass="btn btn-primary" icon="fa fa-unlock-alt" value="Unlock"></p:commandButton>
+                       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+                <p class="text-center">
+                    <a href="#{request.contextPath}/logueo.xhtml"><small>Not #{loginManagedBean.nombrecompleto}?</small></a>
+                </p>
+            </div>
+            <!-- END Login Block -->
+        </div>
+        <!-- END Login Container -->
+
+
+   <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+
+        <h:outputScript library="js" name="vendor/bootstrap.min.js"/>
+        <h:outputScript library="js" name="plugins.js"/>
+        <h:outputScript library="js" name="app.js"/>
+      
+        <!-- Load and execute javascript code used only in this page -->
+         <h:outputScript library="js" name="pages/login.js"/>
+        <script>$(function(){ Login.init(); });</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+
+  
+ 	<!-- Dashboard Header -->
+                    <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-table"></i>Mantenimiento<br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/suministro/mantenimiento.xhtml">Suministro</a></li>
+                        <li><a href="#{request.contextPath}/paginas/atributo/mantenimiento.xhtml">Atributo </a></li>
+                        <li>Mantenimiento</li>
+                    </ul>
+                    <!-- END Datatables Header -->
+
+                    <!-- Datatables Content -->
+                    <div class="block full">
+                        <div class="block-title">
+                            <h2><strong>Atributos</strong> </h2>
+                        </div>
+                    <!-- END Dashboard Header -->
+
+                    <!-- Mini Top Stats Row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Form Validation Example Block -->
+                            <div class="block">
+                                <!-- Form Validation Example Title -->
+                                <div class="block-title">
+                                    <h2><strong>Formulario</strong> Nuevos Atributos #{suministroManagedBean.parametro}</h2>
+                                </div>
+                                <!-- END Form Validation Example Title -->
+
+                                 <h:form  styleClass="form-horizontal form-bordered">
+                             
+                                    <fieldset >
+                                        <legend><i class="fa fa-angle-right"></i>Insercion</legend>
+<!--                                         <div class="form-group"> -->
+<!--                                             <label class="col-md-4 control-label" for="val_username">Codigo <span class="text-danger">*</span></label> -->
+<!--                                             <div class="col-md-6"> -->
+<!--                             					<div class="input-group"> -->
+                                        		
+<!-- 												<p:inputText value="#{suministroManagedBean.atributo.id}" id="id" name="atributo-id" required="true" placeholder="Ingresa id..." > -->
+<!-- 												</p:inputText> -->
+												
+<!-- 												</div> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+                                        
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Aplicacion </label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+										<h:selectOneMenu id="Aplicacion" value="#{suministroManagedBean.atributo.a_aplicacion.codigo}" required="true" label="aplicacion" >
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="a" value="#{aplicacionManagedBean.aplicaciones}" itemLabel="#{a.nombre}"  itemValue="#{a.codigo}"  ></f:selectItems>
+							            </h:selectOneMenu>
+												
+										</div>
+                                        </div>
+                                    </div> 
+
+                                   	<div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Rol</label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+										 <h:selectOneMenu id="Rol" value="#{suministroManagedBean.atributo.b_rol.id}" required="true" label="rol" disabled="true">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="r" value="#{rolManagedBean.roles}" itemLabel="#{r.a_nombre}"  itemValue="#{r.id}"  ></f:selectItems>
+							            </h:selectOneMenu>	
+												
+										</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Suministro</label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                         
+										 <h:selectOneMenu id="Suministro" value="#{suministroManagedBean.atributo.c_suministro.id}" required="true" label="suministro" disabled="true">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="s" value="#{suministroManagedBean.suministros}" itemLabel="#{s.b_nombre}"  itemValue="#{s.id}"  ></f:selectItems>
+							            </h:selectOneMenu>	
+												
+												
+										</div>
+                                        </div>
+                                    </div>
+                                        
+                                     <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Parametro </label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+
+							            <h:selectOneMenu id="Detalle" value="#{suministroManagedBean.atributo.d_detalle.a_id}" required="true" label="detalle">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="d" value="#{suministroManagedBean.detalles}" itemLabel="#{d.c_atributo_nombre}"  itemValue="#{d.a_id}"  ></f:selectItems>
+							            </h:selectOneMenu>
+
+												
+										</div>
+                                        </div>
+                                    </div>
+                                     
+                                   <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Estado </label>
+                                        <div class="col-md-6">
+
+                                         <div class="input-group">
+                                        		
+
+							            <h:selectOneMenu id="Estado" value="#{suministroManagedBean.atributo.e_estado.id}" required="true" label="detalle">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="e" value="#{suministroManagedBean.estados}" itemLabel="#{e.nombre}"  itemValue="#{e.id}"  ></f:selectItems>
+							            </h:selectOneMenu>
+
+												
+										</div>
+                                        </div>
+                                    </div>
+                               
+                                    </fieldset>  
+                                    
+                                    
+				 				 <div class="form-group form-actions">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{suministroManagedBean.registrar_atributo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Registrar"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{suministroManagedBean.volver}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Volver"></p:commandButton>
+                                      	 </div>
+                                        </div>
+                                  </div>
+                                </h:form>
+                                <!-- END Form Validation Example Content -->
+    
+                            </div>
+                            <!-- END Validation Block -->
+                        </div>
+
+                    </div>
+             </div>
+      
+</ui:define>
+</ui:composition>
+</html>

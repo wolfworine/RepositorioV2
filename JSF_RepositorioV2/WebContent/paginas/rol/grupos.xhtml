@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/DataTableTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+ 	<!-- Datatables Header -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-table"></i>Mantenimiento Grupos<br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento.xhtml">Rol</a></li>
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento_suministro.xhtml">Suministro</a></li>
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento_atributo.xhtml">Atributo </a></li>
+                        <li>Mantenimiento Grupos</li>
+                    </ul>
+                    <!-- END Datatables Header -->
+
+                    <!-- Datatables Content -->
+                    <div class="block full">
+                        <div class="block-title">
+                           
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/mantenimiento_atributo.xhtml">Roles</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/grupos.xhtml"> Grupos</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/inbox.xhtml"> Inbox</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
+                    </ul>
+                        </div>
+             
+
+             
+             
+
+             
+             
+   					<h:form>
+	
+   
+             		  <div class="table-responsive">
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.agrupos}" var="a" rows="20"
+						paginator="true"  selection="#{rolManagedBean.selectAtributo}" 
+						selectionMode="single" rowKey="#{a.id}" >
+					
+	
+						
+						<p:column headerText="parametro" styleClass="text-center" width="120">
+						<span class="label label-primary">#{a.d_detalle.d_parametro}</span>
+						</p:column>
+						
+						<p:column  filterBy="#{a.d_detalle.b_atributo_codigo}" headerText="Atributo_codigo" styleClass="text-center" width="150">		
+							#{a.d_detalle.b_atributo_codigo}
+						</p:column>
+						
+						<p:column  filterBy="#{a.d_detalle.c_atributo_nombre}" headerText="atributo_nombre" styleClass="text-center">
+						<span class="label label-primary">#{a.d_detalle.c_atributo_nombre}</span>
+						</p:column>
+						
+						<p:column  headerText="Aplicaci&oacute;n" styleClass="text-center" width="120">		
+							#{a.a_aplicacion.nombre}
+						</p:column>
+						
+						<p:column  filterBy="#{a.e_estado.nombre}" headerText="Estado" styleClass="text-center" width="120">		
+							#{a.e_estado.nombre}
+						</p:column>
+						
+					</p:dataTable>
+					</div>
+               
+				  
+				                    <div class="form-group form-actions">
+                                        <div class="col-md-12 col-md-offset-3 center">
+                                        
+                                          <div class="col-xs-2">
+                                         <p:commandButton action="#{rolManagedBean.nuevo_atributo_grupo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-2">
+                                         <p:commandButton action="#{rolManagedBean.editar_atributo_grupo}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                      	 </div>
+                                      	 
+             
+                                         <div class="col-xs-2">
+                                         <p:commandButton action="#{rolManagedBean.eliminar_atributo}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Eliminar"></p:commandButton>
+                                      	 </div>
+             
+                                        </div>
+                                    </div>
+
+         
+
+					</h:form>
+                    </div>
+                    <!-- END Datatables Content -->
+ 
+        <!-- Load and execute javascript code used only in this page -->
+
+
+
+      
+</ui:define>
+</ui:composition>
+</html>

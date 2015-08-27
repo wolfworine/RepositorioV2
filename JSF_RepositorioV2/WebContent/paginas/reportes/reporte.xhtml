@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/DataTableTemplate.xhtml">
+<!-- 	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Add your content here or delete to use the default
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define> -->
+	
+	
+<ui:define name="content"> 
+ 	<!-- Datatables Header -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-table"></i>Reportes <br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/reportes/reporte.xhtml">Reporte</a></li>
+
+                     
+                    </ul>
+                    <!-- END Datatables Header -->
+
+                    <!-- Datatables Content -->
+                    <div class="block full">
+                        <div class="block-title">
+                           
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/reportes/reporte.xhtml">Reporte</a></strong> </h2></li>
+
+                       
+                    </ul>
+                        </div>
+					
+					<h:form  id="form-validation"  styleClass="form-horizontal form-bordered">
+					
+					                     <fieldset>
+					                  	<div class="form-group">
+                                            <label class="col-md-4 control-label" for="val_codigos">Aplicacion <span class="text-danger">*</span></label>
+                                            <div class="col-md-6">
+                            					<div class="input-group">
+                                        		
+
+							            <h:selectOneMenu id="Aplicacion" value="#{reportesManagedBean.aplicacion.aplicacion}" required="true" label="Tipo">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="r" value="#{aplicacionManagedBean.aplicaciones}" itemLabel="#{r.aplicacion}"  itemValue="#{r.aplicacion}"  ></f:selectItems>
+							            </h:selectOneMenu>
+												
+										</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="val_username">Area <span class="text-danger">*</span></label>
+                                            <div class="col-md-6">
+                            					<div class="input-group">
+                                        		
+
+							            <h:selectOneMenu id="Area" value="#{reportesManagedBean.area.area}" required="true" label="Area">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="a" value="#{areasManagedBean.areas}" itemLabel="#{a.area}"  itemValue="#{a.area}"  ></f:selectItems>
+							            </h:selectOneMenu>
+												
+										</div>
+                                            </div>
+                                        </div>
+					                     
+					                     
+					                     </fieldset>	
+					                     
+					             <div class="form-group form-actions">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{reportesManagedBean.reporte}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Reporte"></p:commandButton> 
+                                         </div>
+                                                                               	 
+             
+                                        </div>
+                                    </div>
+   					</h:form>
+                    </div>
+                    <!-- END Datatables Content -->
+ 
+        <!-- Load and execute javascript code used only in this page -->
+
+
+
+      
+</ui:define>
+</ui:composition>
+</html>
